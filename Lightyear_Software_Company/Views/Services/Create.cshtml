@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script type="text/javascript">
+    CKEDITOR.replace('editor')
+</script>
+
+<h2>Create</h2>
+
+<div class="form">
+    <form class="form-validate form-horizontal" id="feedback_form" method="post" action="/Services/Create/" enctype="multipart/form-data">
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Title <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="ServiceTitle" name="ServiceTitle" minlength="5" type="text" required />
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="cemail" class="control-label col-lg-2">Description <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <textarea name="ServiceDescription" class="ckeditor" required></textarea>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="curl" class="control-label col-lg-2">Image </label>
+            <div class="col-lg-10">
+                <input type="file" class="form-control " name="ImageURL" accept=".jpg,.jpeg,.png" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Create</button>
+                <button class="btn btn-danger" type="button"><a href="/Services/Index/">Cancel</a></button>
+            </div>
+        </div>
+    </form>
+</div>

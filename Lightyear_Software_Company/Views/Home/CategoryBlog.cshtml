@@ -1,0 +1,92 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Lightyear_Software_Company.Models.Model.Blog>
+
+@{
+    ViewBag.Title = "CategoryBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<!-- ======= Blog Section ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Blog</h2>
+
+            <ol>
+                <li><a href="/Home/Index/">Home</a></li>
+                <li><a href="/Home/Blog/">Blog</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Blog Section -->
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+
+            <div class="col-lg-8 entries">
+                @foreach (var item in Model)
+                {
+                    <article class="entry">
+
+                        <div class="entry-img">
+                            <img src="@item.BlogImageURL" alt="@item.BlogTitle" class="img-fluid"> <!--style="width:1000px;height:500px;"-->
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="/Home/BlogDetail/@item.BlogID/">@item.BlogTitle</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> @item.BlogCategory.CategoryName</li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>
+                                @Html.Raw(item.BlogContent.Substring(0, 150)) ...
+                            </p>
+                            <div class="read-more">
+                                <a href="/Home/BlogDetail/@item.BlogID/">Read More</a>
+                            </div>
+                        </div>
+
+                    </article>
+                }<!-- End blog entry -->
+
+                <div class="blog-pagination">
+                    @Html.PagedListPager(Model, Page => Url.Action("Blog", new { Page }), PagedListRenderOptions.Classic)
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Search</h3>
+                    <div class="sidebar-item search-form">
+                        <form action="">
+                            <input type="text">
+                            <button type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div><!-- End sidebar search formn-->
+
+                    <h3 class="sidebar-title">Categories</h3>
+                    <div class="sidebar-item categories">
+                        @{
+                            Html.RenderAction("BlogCategoryPartial", "Home");
+                        }
+                    </div><!-- End sidebar categories-->
+                </div><!-- End sidebar -->
+            </div>
+
+        </div><!-- End blog entries list -->
+    </div>
+</section><!-- End Blog Section -->

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.CarrierCategory>
+
+<div class="center">
+    <ul style="list-style:none; float:left;">
+        <li style="float:left;" class="btn btn-info">
+            <a href="/Home/Carrier/" style="color: white;">All</a>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li style="float:left;  margin-left: 25px;" class="btn btn-info">
+                <a href="/Home/CategoryCarrier/@item.CarrierCategoryID/" style="color: white;">
+                @item.CarrierCategoryName <span>(@item.Carriers.Count())</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<br />
+<br />

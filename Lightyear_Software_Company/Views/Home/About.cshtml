@@ -1,0 +1,146 @@
+﻿@model Lightyear_Software_Company.Models.Model.About
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+<!-- ======= About Us Section ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>About Us</h2>
+            <ol>
+                <li><a href="/Home/Index/">Home</a></li>
+                <li><a href="/Home/About/">About Us</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End About Us Section -->
+
+<!-- ======= About Section ======= -->
+<section class="about" data-aos="fade-up">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="/Content/SiteLayout/assets/img/about.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+                <h3>Lightyear Software Company</h3>
+                <p class="fst-italic">
+                    @Html.Raw(Model.About_Description)
+                    @*@Model.About_Description*@
+                </p>
+                @*<ul>
+                    <li><i class="bi bi-check2-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check2-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check2-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                </ul>
+                <p>
+                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p>*@
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+
+<!-- ======= Facts Section ======= -->
+<section class="facts section-bg" data-aos="fade-up">
+    <div class="container">
+
+        <div class="row counters">
+
+            <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Clients</p>
+            </div>
+
+            <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects</p>
+            </div>
+
+            <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hours Of Support</p>
+            </div>
+
+            <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hard Workers</p>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Facts Section -->
+
+<!-- ======= Tetstimonials Section ======= -->
+<section class="testimonials" data-aos="fade-up">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Testimonials</h2>
+            <p>
+                Thanks to the services we provide to many different people and institutions from many different parts of the world, we have gained good references. You can review some of our famous testimonials below.
+            </p>
+        </div>
+
+        <div class="testimonials-carousel swiper">
+            <div class="swiper-wrapper">
+                <div class="testimonial-item swiper-slide">
+                    <img src="~/Content/SiteLayout/assets/img/testimonials/1.jpeg" class="testimonial-img" alt="">
+                    <h3>Saul Goodman</h3>
+                    <h4>Ceo &amp; Founder of Goodman & Associates</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        We put our affairs in order with the database system software they provided to the law firm I manage. In addition, they have solved all our software problems with the consultancy and control services they provide on a regular basis.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item swiper-slide">
+                    <img src="~/Content/SiteLayout/assets/img/testimonials/2.jpg" class="testimonial-img" alt="">
+                    <h3>Charles Leclerc</h3>
+                    <h4>F1 Pilot at Scuderia Ferrari</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Thanks to the analysis system they developed, I improved myself a lot. My stats in the race were positively affected. As a team, we have come to a better place.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item swiper-slide">
+                    <img src="~/Content/SiteLayout/assets/img/testimonials/5.jpg" class="testimonial-img" alt="">
+                    <h3>Gordon Ramsey</h3>
+                    <h4>Chef</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        The mobile application they developed for my new restaurant opened in Australia is absolutely fantastic! My customers and employees can handle many things through the application, thus increasing our efficiency.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+                <div class="testimonial-item swiper-slide">
+                    <img src="~/Content/SiteLayout/assets/img/testimonials/3.jpg" class="testimonial-img" alt="">
+                    <h3>Harry Kane</h3>
+                    <h4>Footballer at Tottenham Hotspurs & England National Team</h4>
+                    <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        As a team, we use the BUZZ AI application and we are very satisfied. We adjust our training programs thanks to the analyzes and information provided for the matches we will play. The individual development of the players was positively affected.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section><!-- End Ttstimonials Section -->

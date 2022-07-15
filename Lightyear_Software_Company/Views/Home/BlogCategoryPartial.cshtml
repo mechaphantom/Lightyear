@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.BlogCategory>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="/Home/CategoryBlog/@item.BlogCategoryID/">@item.CategoryName <span>(@item.Blogs.Count())</span></a></li>
+        }
+
+
+    </ul>

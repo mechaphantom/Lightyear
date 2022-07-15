@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>About Section</h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.About_Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(item.About_Description)
+        </td>
+        <td class="btn btn-info">
+            @Html.ActionLink("Edit", "Edit", new { id=item.AboutID })
+        </td>
+    </tr>
+}
+
+</table>

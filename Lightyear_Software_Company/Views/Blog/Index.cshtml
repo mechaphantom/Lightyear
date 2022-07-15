@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+</script>
+
+<h2>Blog Entries</h2>
+
+<a class="btn btn-success" href="/Blog/Create/">Create</a>
+
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Blog Category</th>
+            <th>Image</th>
+            <th>DB Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BlogID</td>
+                <td>@item.BlogTitle</td>
+                <td>@item.BlogCategory.CategoryName</td>
+                <td><img src="@item.BlogImageURL" width="300" height="150" /></td>
+                <td>
+                    <a class="btn btn-primary" href="/Blog/Edit/@item.BlogID">Edit</a> |
+                    <a class="btn btn-danger" href="/Blog/Delete/@item.BlogID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

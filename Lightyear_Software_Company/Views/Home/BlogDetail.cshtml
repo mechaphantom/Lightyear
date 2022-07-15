@@ -1,0 +1,94 @@
+﻿@model Lightyear_Software_Company.Models.Model.Blog
+@{
+    ViewBag.Title = "BlogDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Blog Detail / @Model.BlogTitle</h2>
+
+            <ol>
+                <li><a href="/Home/Index/">Home</a></li>
+                <li><a href="/Home/Blog/">Blog</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section>
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-12 entries">
+                <article class="entry">
+
+                    <div>
+                        <img src="@Model.BlogImageURL" alt="@Model.BlogTitle" class="center"> <!--style="width:1000px;height:500px;"-->
+                    </div>
+                    <br />
+                    <h2 class="entry-title">
+                        @Model.BlogTitle
+                    </h2>
+
+                    <div class="entry-meta">
+                        <ul>
+                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> @Model.BlogCategory.CategoryName</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="entry-content">
+                        <p>
+                            @Html.Raw(Model.BlogContent)
+                        </p>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div>
+                    <h3>Comment</h3>
+
+                    <form>
+                        <div>
+                            <input class="form-control" type="text" id="name" placeholder="Name: " required /><br />
+                            <input class="form-control" type="email" id="mail" placeholder="Mail: " required /><br />
+                            <textarea class="form-control" typeof="text" id="content"></textarea><br />
+                            <button type="submit" class="btn btn-primary" id="send">Comment</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#send").click(function () {
+                var name = $("#name").val();
+                var mail = $("#mail").val();
+                var content = $("#content").val();
+                $.ajax({
+                    url: '/Home/Comment/',
+                    data: { name: name, mail: mail, content: content, BlogID:@Model.BlogID },
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        alert("Your comment has been added. You can see after the approval!");
+                    }
+                });
+            });
+        })
+    </script>
+

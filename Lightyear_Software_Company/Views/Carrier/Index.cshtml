@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.Carrier>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+<h2>Carrier Opportunities</h2>
+
+<a class="btn btn-success" href="/Carrier/Create/">Create</a>
+
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Carrier Category</th>
+            <th>Image</th>
+            <th>DB Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CarrierID</td>
+                <td>@item.CarrierTitle</td>
+                <td>@item.CarrierCategory.CarrierCategoryName</td>
+                <td><img src="@item.CarrierImageURL" width="300" height="150" /></td>
+                <td>
+                    <a class="btn btn-primary" href="/Carrier/Edit/@item.CarrierID">Edit</a> |
+                    <a class="btn btn-danger" href="/Carrier/Delete/@item.CarrierID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

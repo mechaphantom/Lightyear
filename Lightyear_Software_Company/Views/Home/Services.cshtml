@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.Services>
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /> <br />
+<!-- ======= Our Services Section ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Our Services</h2>
+            <ol>
+                <li><a href="/Home/Index/">Home</a></li>
+                <li><a href="/Home/Services/">Our Services</a></li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Our Services Section -->
+<!-- ======= Service Details Section ======= -->
+<section class="service-details">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="@item.ImageURL">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">@item.ServiceTitle</a></h5>
+                            <p class="card-text">@Html.Raw(item.ServiceDescription)</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+</section><!-- End Service Details Section -->
+<!-- ======= Pricing Section ======= -->
+<section class="pricing section-bg" data-aos="fade-up">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Pricing</h2>
+            <p>
+                You can see the pricing options for BUZZAI developed by our company below. For other services and offers offered by our company, <a href="/Home/Contact/">you can contact us by filling out the form on the Contact page.</a>
+            </p>
+        </div>
+
+        <div class="row no-gutters">
+
+            <div class="col-lg-4 box">
+                <h3>Free</h3>
+                <h4>$0<span>per month</span></h4>
+                <ul>
+                    <li><i class="bx bx-check"></i> 3 Analysis Documents</li>
+                    <li><i class="bx bx-check"></i> 1 Analysis Graph</li>
+                    <li><i class="bx bx-check"></i> Development Chart</li>
+                    <li class="na"><i class="bx bx-x"></i> <span>AI Driven Smart Solutions</span></li>
+                    <li class="na"><i class="bx bx-x"></i> <span>Competitor Analysis Graphs</span></li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
+            </div>
+
+            <div class="col-lg-4 box featured">
+                <h3>Business</h3>
+                <h4>$149<span>per month</span></h4>
+                <ul>
+                    <li><i class="bx bx-check"></i> 50 Analysis Documents</li>
+                    <li><i class="bx bx-check"></i> 10 Analysis Graph</li>
+                    <li><i class="bx bx-check"></i> Development Charts</li>
+                    <li><i class="bx bx-check"></i> AI Driven Smart Solutions</li>
+                    <li><i class="bx bx-check"></i> 5 Competitor Analysis Graphs</li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
+            </div>
+
+            <div class="col-lg-4 box">
+                <h3>Enterprise</h3>
+                <h4>$299<span>per month</span></h4>
+                <ul>
+                    <li><i class="bx bx-check"></i> 150 Analysis Documents</li>
+                    <li><i class="bx bx-check"></i> 30 Analysis Graph</li>
+                    <li><i class="bx bx-check"></i> Development Charts</li>
+                    <li><i class="bx bx-check"></i> AI Driven Smart Solutions</li>
+                    <li><i class="bx bx-check"></i> 20 Competitor Analysis Graphs</li>
+                </ul>
+                <a href="#" class="get-started-btn">Get Started</a>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Pricing Section -->

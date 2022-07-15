@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider</h2>
+
+<button class="btn btn-success" type="button">
+     @Html.ActionLink("Create New", "Create")
+</button>
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderImageURL)
+        </th>
+        <th>DB Operations</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderDescription)
+            </td>
+            <td>
+                <img src="@item.SliderImageURL" width="300" height="150" />
+                @*@Html.DisplayFor(modelItem => item.SliderImageURL)*@
+            </td>
+            <td>
+                <button class="btn btn-info" type="button" style="color:white;">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SliderID })
+                </button> |
+                <button class="btn btn-danger" type="button">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SliderID })
+                </button>
+
+            </td>
+        </tr>
+    }
+
+</table>

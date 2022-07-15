@@ -1,0 +1,35 @@
+﻿@model Lightyear_Software_Company.Models.Model.CarrierCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CarrierCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarrierCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarrierCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarrierCategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarrierCategoryDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CarrierCategoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.WebsiteIdentity>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Website Identity</h2>
+
+<br />
+<p class="btn btn-success">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<br /> <br />
+<table class="table table-bordered table-striped table-responsive-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogoURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            Edit
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keywords)
+        </td>
+        <td>
+            @Html.Raw(item.Description)
+        </td>
+        <td>
+            <img src="@item.LogoURL" class="img-responsive" width="300" height="150"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rank)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WebsiteID })
+        </td>
+    </tr>
+}
+
+</table>

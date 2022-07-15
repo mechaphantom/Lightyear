@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Lightyear_Software_Company.Models.Model.Services>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Services</h2>
+<br />
+<button class="btn btn-success" type="button"><a href="/Services/Create/">Create</a></button>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>ImageURL</th>
+            <th>DB Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ServiceID</td>
+                <td>@item.ServiceTitle</td>
+                <td>@Html.Raw(item.ServiceDescription)</td>
+                <td><img width="100" height="100" src="@item.ImageURL" /></td>
+                <td>
+                    <a class="btn btn-primary" href="/Services/Edit/@item.ServiceID">Edit</a> |
+                    <a class="btn btn-danger" href="/Services/Delete/@item.ServiceID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
